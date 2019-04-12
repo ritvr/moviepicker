@@ -19,7 +19,10 @@ fetch('revised-med-movielist-2008-2018.json')  //use 'revised-med-movielist-2008
         // Adds a filterable genre ClassName to 'main' element. Stripping out commas from the 'genre' data attribute.
         let cat = data.genre.replace(/,+/g,'')
         div.className='main filterDiv show ' + cat + ' ' +data.year;  //filterDiv and show are classes for filtering divs on main page
-        div.style.backgroundImage= 'url('+data.thumbnail+')';
+        div.style.backgroundImage= 'url('+data.thumbnail+')'
+        div.style.cursor='pointer'
+        div.addEventListener('click', movieDetails)
+
         
         
         // Movie Score Background colour
@@ -32,7 +35,9 @@ fetch('revised-med-movielist-2008-2018.json')  //use 'revised-med-movielist-2008
         overlay.className='imgOverlay'
         overlay.id=data.movie
         //Listens for a click on a particular movie then opens the movie details in a pop-up modal
-        overlay.addEventListener('click', function(){
+        overlay.addEventListener('click', movieDetails) 
+        
+        function movieDetails(){
             console.log('Finding: ' + this.id );
             console.log(data.movie + data.year + data.description +data.runtime +data.imdb)
             // Makes the Modal visible
@@ -117,7 +122,7 @@ fetch('revised-med-movielist-2008-2018.json')  //use 'revised-med-movielist-2008
             
 
             
-        }, false);
+        }
         div.appendChild(overlay)
 
         // Movie Score
