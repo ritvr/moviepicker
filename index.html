@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <nav> 
+        <div class="navbar">
+            <div class="logo">Movie Top Charts</div>
+            <div class="topnav-right">
+                <div class="favourites"><i class="fas fa-heart"><div class="counter">3</div></i></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="cont">
+        <div class="header">
+            <h2>Search by genre and save by using the heart</h2>
+            <br>
+            <div id="genre-container">
+                <div class="genre-select active" onclick="filterSelection('all')">Show All</div>
+                <div class="genre-select" onclick="filterSelection('Action')">Action</div>
+                <div class="genre-select" onclick="filterSelection('Comedy')">Comedy</div>
+                <div class="genre-select" onclick="filterSelection('Horror')">Horror</div>
+                <div class="genre-select" onclick="filterSelection('Romance')">Romance</div>
+                <div class="genre-select" onclick="filterSelection('Adventure')">Adventure</div>
+                <div class="genre-select" onclick="filterSelection('Thriller')">Thriller</div>
+                <div class="genre-select" onclick="filterSelection('Crime')">Crime</div>
+                <div class="genre-select" onclick="filterSelection('Sci-Fi')">Sci-Fi</div>
+                <div class="genre-select" onclick="filterSelection('Drama')">Drama</div>
+            </div>
+        </div>
+
+        <!-- Main content loads in the container div -->
+        <div class="grid-container">
+            <div class="container"></div> 
+         </div>
+
+    </div>
+
+    <!-- Pop-up Modals -->
+    <div class="modal"> 
+        <div class="modal-content">
+            <!-- <div class="modal-image"></div> -->
+            <div class="heading"></div>
+            <div class="genre-category"></div>
+            <div class="year"></div>
+            <div class="rating"></div>
+            <div class="runtime"></div>
+            <div class="description"></div>
+        </div>
+    </div>
+
+    <div class="modal2">
+        <div class="modal-list-content">
+            <div class="shortlist">
+                <h1>Your Movies!</h1>
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>

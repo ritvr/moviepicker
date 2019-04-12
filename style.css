@@ -1,0 +1,427 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Ubuntu');
+
+
+* {
+    align-content: center;
+    margin: auto;
+    background-color: #0000;
+    
+}
+
+body {
+    background-color: #000;
+    height: 100vh;
+}
+ 
+.navbar {
+    height: 60px;
+    width: 100%;
+    background-color: #2e2e2e;
+    color: white;
+    position: fixed;
+    z-index: 100;
+}
+
+.logo {
+    float: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    white-space: nowrap;
+    
+}
+.topnav-right {
+    float: right;
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 95%;
+    transform: translate(-50%, -25%);
+  }
+
+.favourites {
+    color: white;
+    font-size: 2.5rem;
+}
+
+.counter {
+    display: none;
+    background-color: white;
+    color: black;
+    font-size: 1rem;
+    width: 1.1rem;
+    font-family: arial;
+    text-align: center;
+    border-radius: 3px;
+    position: absolute;
+    top: 40%;
+    left: 92%;
+    transform: translate(-50%, -25%);
+}
+
+
+
+
+.cont {
+    align-content: center;
+    margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+    
+}
+
+.header {
+    padding-top: 110px;
+    margin-bottom: 100px;
+    background-color: #000;
+    text-align: center;
+}
+
+.header h1, h2, h3 {
+    font-family: 'Oswald', sans-serif;
+}
+
+p {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+.genre-select {
+    width: 100px;
+    height: 40px;
+    background-color: #2e2e2e;
+    color: white;
+    display: inline-block;
+    line-height: 40px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+    margin: 2px;
+    cursor: pointer;
+    
+
+}
+
+.genre-select:hover {
+    background-color: #7a7a7a;
+}
+
+.genre-select.active {
+    background-color: #b6b6b6;
+}
+
+.grid-container {
+    display: grid;
+    background-color: #000;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 170px);
+    margin: 0 auto;
+    background-color: #0000;
+}
+
+
+.main {
+    background-size: contain;
+    background-repeat: no-repeat;
+  
+    height: 250px;
+    width: 170px;
+    min-height: 250px;
+    min-width: 170px;
+    max-height: 250px;
+    max-width: 170px;
+    
+    background-color: #0000;
+    position: relative;
+}
+
+
+.scoreBg {
+    float: right;
+    display: relative;
+    width: 0; 
+    height: 0; 
+    border-top: 80px solid hsl(47, 97%, 62%); ; 
+    border-left: 80px solid transparent;
+
+    display: none;
+    z-index: 12;
+}
+
+.score {
+    color: #fff;
+
+
+    cursor: pointer;
+    right: 7px;
+    top: 5px;
+    position: absolute;
+
+    font-size: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+
+    display: none;
+    z-index: 13;
+    
+}
+
+.movie {
+    cursor: pointer;
+    z-index: 14;
+    left: 5px;
+    bottom: 5px;
+    position: absolute;
+    display: none;
+}
+
+.imgOverlay {
+  position: absolute;
+  display: none; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #0000009c; 
+  z-index: 1; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.main:hover 
+        .score  {
+    display: inline;
+}
+
+.main:hover 
+        .scoreBg  {
+    display: block;
+}
+
+.main:hover 
+        .movie  {
+    display: inline;
+}
+
+.main:hover 
+        .imgOverlay {
+            display: block;
+        }
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 120;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(153, 150, 150, 0.418);
+    
+}
+
+
+
+.modal-content {
+    display: none;
+    background-color: rgba(58, 58, 58, 0.952);
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 40px auto;
+    overflow: none;
+    padding: 20px;
+    width: 70%;
+    height: 70%;
+    max-width: 1000px;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.2);
+    
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.modal-image {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 8;
+    align-self: center;
+    justify-self: center;
+    min-width: 60%;
+    min-height: 100%;
+}
+
+
+/* Favourited Movie Lists - Modal List Content */
+.modal-list-content {
+    display: none;
+    background-color: rgba(58, 58, 58, 0.952);
+    color: #fff;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 40px auto;
+    overflow: none;
+    padding: 20px;
+    width: 70%;
+    min-height: 70%;
+    max-width: 900px;
+    /* box-shadow: 0 5px 8px 0 rgba(255, 0, 0, 0.2), 0 7px 20px 0 rgba(255, 0, 0, 0.2); */
+    box-shadow: 10px 8px 11px 10px rgba(255, 0, 0, 0.2), 10px 10px 13px 10px rgba(255, 0, 0, 0.2);
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px;
+    grid-gap: 10px;
+}
+
+.modal-list-image {
+    height: 300px;
+    width: 200px;
+}
+
+.shortlist {
+    grid-column-start:1;
+    grid-column-end:3;
+}
+
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 120;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(153, 150, 150, 0.418);
+    
+}
+
+
+
+
+
+
+
+
+
+
+.list-heading {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+}
+
+
+.heading {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+}
+
+
+
+.genre-category {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+.year {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+.rating {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+.runtime {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 4;
+    grid-row-end: 5;
+}
+
+
+.description {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 7;
+}
+
+.favourite {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 7;
+    grid-row-end: 9;
+    font-size: 3rem;
+}
+
+.filterDiv {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(1, 170px);
+        margin: 0 auto;
+        background-color: #0000; }
+    
+    .model-content {
+        grid-template-columns: 1fr 1fr;
+        /* grid-template-rows: repeat(8, 1fr); */
+    }
+
+    .modal-image {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        margin: auto;
+        margin-right: 10%;
+    }
+
+    .heading {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 4;
+        grid-row-end: 6;
+        text-align: center
+    }
+
+    .description {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 6;
+        grid-row-end: 11;
+        text-align: center;
+        
+    }
+
+    .rating, .runtime, .year, .genre-category {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    
+    }
